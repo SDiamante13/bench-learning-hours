@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="true" />
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/fizz-buzz" />
+            <option value="$PROJECT_DIR$/game-of-life" />
+            <option value="$PROJECT_DIR$/gilded-rose" />
+            <option value="$PROJECT_DIR$/greeting-service" />
+            <option value="$PROJECT_DIR$/leap-year-kata" />
+            <option value="$PROJECT_DIR$/legacy-code" />
+            <option value="$PROJECT_DIR$/movie-rental" />
+            <option value="$PROJECT_DIR$/polymorphism" />
+            <option value="$PROJECT_DIR$/primitive-obsession" />
+            <option value="$PROJECT_DIR$/shopping-basket" />
+            <option value="$PROJECT_DIR$/yatzy" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

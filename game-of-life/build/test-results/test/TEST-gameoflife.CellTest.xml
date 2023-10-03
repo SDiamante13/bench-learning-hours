@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="gameoflife.CellTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-10-03T21:28:55" hostname="Steven-Diamante" time="0.062">
+  <properties/>
+  <testcase name="liveCellWithThreeLiveNeighborsLives()" classname="gameoflife.CellTest" time="0.057"/>
+  <testcase name="deadCellWithThreeNeighborLives()" classname="gameoflife.CellTest" time="0.001"/>
+  <testcase name="liveCellWithOneLiveNeighborDies()" classname="gameoflife.CellTest" time="0.001"/>
+  <testcase name="deadCellWithOneLiveNeighborDies()" classname="gameoflife.CellTest" time="0.0"/>
+  <testcase name="deadCellWithTwoLiveNeighborDies()" classname="gameoflife.CellTest" time="0.0"/>
+  <testcase name="liveCellWithTwoLiveNeighborsLives()" classname="gameoflife.CellTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

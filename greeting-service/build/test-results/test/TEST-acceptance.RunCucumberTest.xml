@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="acceptance.RunCucumberTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-10-03T21:29:00" hostname="Steven-Diamante" time="1.174">
+  <properties/>
+  <testcase name="Just a Greeting" classname="acceptance.RunCucumberTest" time="1.174">
+    <failure message="java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;404&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;200&gt; but was:&lt;404&gt;
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:627)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at acceptance.GreetingStepDefinitions.the_system_will_reply_with(GreetingStepDefinitions.java:24)
+	at ✽.the system will reply with &quot;Hello my friend!&quot;(classpath:acceptance/greetings.feature:5)
+</failure>
+  </testcase>
+  <system-out><![CDATA[17:29:00.286 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:29:00.291 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:29:00.298 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [acceptance.SpringAcceptanceTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+17:29:00.304 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [acceptance.SpringAcceptanceTest]: class path resource [acceptance/SpringAcceptanceTest-context.xml] does not exist
+17:29:00.304 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [acceptance.SpringAcceptanceTest]: class path resource [acceptance/SpringAcceptanceTestContext.groovy] does not exist
+17:29:00.304 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [acceptance.SpringAcceptanceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:29:00.325 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [acceptance.SpringAcceptanceTest]
+17:29:00.368 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [acceptance.SpringAcceptanceTest]: using defaults.
+17:29:00.368 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+17:29:00.373 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+17:29:00.374 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+17:29:00.374 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@669253b7, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5305c37d, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@51a06cbe, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3dddbe65, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@49a64d82, org.springframework.test.context.support.DirtiesContextTestExecutionListener@344561e0, org.springframework.test.context.event.EventPublishingTestExecutionListener@66d23e4a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@36ac8a63, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4d9d1b69, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@52c8295b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@251f7d26, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@77b21474, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@52d10fb8]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::               (v2.7.11)
+
+2023-10-03 17:29:00.552  INFO 6876 --- [    Test worker] acceptance.SpringAcceptanceTest          : Starting SpringAcceptanceTest using Java 17.0.5 on Steven-Diamante with PID 6876 (started by stevendiamante in /Users/stevendiamante/workspace/tdd-training-katas/greeting-service)
+2023-10-03 17:29:00.553  INFO 6876 --- [    Test worker] acceptance.SpringAcceptanceTest          : No active profile set, falling back to 1 default profile: "default"
+2023-10-03 17:29:01.174  INFO 6876 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-10-03 17:29:01.174  INFO 6876 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-10-03 17:29:01.174  INFO 6876 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-10-03 17:29:01.188  INFO 6876 --- [    Test worker] acceptance.SpringAcceptanceTest          : Started SpringAcceptanceTest in 0.801 seconds (JVM running for 1.483)
+
+Scenario: Just a Greeting                            ?[90m# acceptance/greetings.feature:3?[0m
+  ?[32mWhen ?[0m?[32ma greeting message is requested?[0m               ?[90m# acceptance.GreetingStepDefinitions.a_greeting_message_is_requested()?[0m
+  ?[31mThen ?[0m?[31mthe system will reply with ?[0m?[31m?[1m"Hello my friend!"?[0m ?[90m# acceptance.GreetingStepDefinitions.the_system_will_reply_with(java.lang.String)?[0m
+      ?[31mjava.lang.AssertionError: Status expected:<200> but was:<404>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$9(StatusResultMatchers.java:627)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:214)
+	at acceptance.GreetingStepDefinitions.the_system_will_reply_with(GreetingStepDefinitions.java:24)
+	at ✽.the system will reply with "Hello my friend!"(classpath:acceptance/greetings.feature:5)
+?[0m
+]]></system-out>
+  <system-err><![CDATA[?[32m?[1m┌───────────────────────────────────────────────────────────────────────────────────┐?[0m
+?[32m?[1m│?[0m Share your Cucumber Report with your team at ?[36m?[1m?[4mhttps://reports.cucumber.io?[0m          ?[32m?[1m│?[0m
+?[32m?[1m│?[0m Activate publishing with one of the following:                                    ?[32m?[1m│?[0m
+?[32m?[1m│?[0m                                                                                   ?[32m?[1m│?[0m
+?[32m?[1m│?[0m src/test/resources/cucumber.properties:          ?[36mcucumber.publish.enabled?[0m=?[36mtrue?[0m    ?[32m?[1m│?[0m
+?[32m?[1m│?[0m src/test/resources/junit-platform.properties:    ?[36mcucumber.publish.enabled?[0m=?[36mtrue?[0m    ?[32m?[1m│?[0m
+?[32m?[1m│?[0m Environment variable:                            ?[36mCUCUMBER_PUBLISH_ENABLED?[0m=?[36mtrue?[0m    ?[32m?[1m│?[0m
+?[32m?[1m│?[0m JUnit:                                           ?[36m@CucumberOptions?[0m(publish = ?[36mtrue?[0m) ?[32m?[1m│?[0m
+?[32m?[1m│?[0m                                                                                   ?[32m?[1m│?[0m
+?[32m?[1m│?[0m More information at ?[36mhttps://cucumber.io/docs/cucumber/environment-variables/?[0m      ?[32m?[1m│?[0m
+?[32m?[1m│?[0m                                                                                   ?[32m?[1m│?[0m
+?[32m?[1m│?[0m Disable this message with one of the following:                                   ?[32m?[1m│?[0m
+?[32m?[1m│?[0m                                                                                   ?[32m?[1m│?[0m
+?[32m?[1m│?[0m src/test/resources/cucumber.properties:          ?[36mcucumber.publish.quiet?[0m=?[36mtrue?[0m      ?[32m?[1m│?[0m
+?[32m?[1m│?[0m src/test/resources/junit-platform.properties:    ?[36mcucumber.publish.quiet?[0m=?[36mtrue?[0m      ?[32m?[1m│?[0m
+?[32m?[1m└───────────────────────────────────────────────────────────────────────────────────┘?[0m
+]]></system-err>
+</testsuite>

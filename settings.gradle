@@ -1,0 +1,13 @@
+rootProject.name = 'bench-cohort'
+include 'leap-year-kata'
+include 'fizz-buzz'
+include 'shopping-basket'
+include 'game-of-life'
+include 'greeting-service'
+include 'yatzy'
+include 'movie-rental'
+include 'gilded-rose'
+include 'primitive-obsession'
+include 'polymorphism'
+include 'legacy-code'
+
