@@ -10,4 +10,7 @@ include 'gilded-rose'
 include 'primitive-obsession'
 include 'polymorphism'
 include 'legacy-code'
+include 'tennis-refactoring'
+include 'chart-smart'
+include 'duplication-kata'
 
