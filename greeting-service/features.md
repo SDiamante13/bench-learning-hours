@@ -4,14 +4,14 @@ A Code Kata intended to practice TDD Outside-In.
 
 ## Welcome!
 
-Hello developer! :wave: At the _HELLO WORLD! Inc._ company we are excited to develop and release a new idea into the market! We want to build a new service to send customized greeting messages to our users.
+Hello developer! :wave: At the _HELLO WORLD! Inc.navigation company we are excited to develop and release a new idea into the market! We want to build a new service to send customized greeting messages to our users.
 
 **Here you'll find few requirements**
 
 * The service have to expose an HTTP API which can be called from other HTTP clients.
 * The service can also be used from a command line or an interactive shell.
 
-_Try to complete each feature before proceeding to the next one. We like to work iteratively._
+_Try to complete each feature before proceeding to the next one. We like to work iteratively.navigation
 
 ## Feature One
 
@@ -24,7 +24,7 @@ Then the system will reply with "Hello my friend!"
 
 ## Feature Two
 
-_Greeting a User with a customized message!_
+_Greeting a User with a customized message!navigation
 
 ```
 When a User with the name Joe request a greeting message
@@ -57,7 +57,7 @@ Then the system will reply with a customized message that says:
 
 ## Feature Four
 
-_Greeting a User by choosing a greeting message from a predefined set of messages, **based on the time of the day**._
+_Greeting a User by choosing a greeting message from a predefined set of messages, **based on the time of the day**.navigation
 
 **Requesting a greeting message early in the morning**
 

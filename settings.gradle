@@ -13,4 +13,5 @@ include 'legacy-code'
 include 'tennis-refactoring'
 include 'chart-smart'
 include 'duplication-kata'
+include 'keyboard-shortcuts'
 

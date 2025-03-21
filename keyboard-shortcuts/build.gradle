@@ -1,0 +1,5 @@
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 8
