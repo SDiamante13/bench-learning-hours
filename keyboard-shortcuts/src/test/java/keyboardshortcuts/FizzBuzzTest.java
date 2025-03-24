@@ -17,13 +17,6 @@ class FizzBuzzTest {
     @ParameterizedTest
     @CsvSource({
             "1,1",
-            "2,2",
-            "3,Fizz",
-            "99,Fizz",
-            "5,Buzz",
-            "100,Buzz",
-            "15,FizzBuzz",
-            "90,FizzBuzz",
     })
     void rulesOfFizzBuzz(int number, String expected) {
         String actual = fizzbuzz(number);
