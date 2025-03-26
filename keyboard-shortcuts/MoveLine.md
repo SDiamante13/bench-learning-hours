@@ -1,5 +1,5 @@
 # Move Line
-Sort the numers below using only move line up/down (you can move multiple lines at a time)
+Sort the numbers below using only move line up/down (you can move multiple lines at a time)
 Lookup the keyboard shortcuts for your tool!
 
 * 42
