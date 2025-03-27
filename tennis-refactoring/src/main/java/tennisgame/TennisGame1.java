@@ -2,8 +2,8 @@ package tennisgame;
 
 public class TennisGame1 implements TennisGame {
 
-    private int m_score1 = 0;
-    private int m_score2 = 0;
+    private int player1Score = 0;
+    private int player2Score = 0;
     private String player1Name;
     private String player2Name;
 
@@ -19,21 +19,21 @@ public class TennisGame1 implements TennisGame {
 
     public void wonPoint(String playerName) {
         if (playerName == "player1")
-            m_score1 += 1;
+            player1Score += 1;
         else
-            m_score2 += 1;
+            player2Score += 1;
     }
 
     public String getScore() {
         String score = "";
         int tempScore = 0;
-        if (m_score1 == m_score2) {
+        if (player1Score == player2Score) {
             String score1;
             score1 = getScoreForTie();
             score = score1;
-        } else if (m_score1 >= 4 || m_score2 >= 4) {
+        } else if (player1Score >= 4 || player2Score >= 4) {
             String score1;
-            int minusResult = m_score1 - m_score2;
+            int minusResult = player1Score - player2Score;
 
             if (minusResult == 1) {
                 score1 = "Advantage player1";
@@ -47,7 +47,7 @@ public class TennisGame1 implements TennisGame {
 
             score = score1;
         } else {
-            score = score + baseScores[m_score1] + "-" + score + baseScores[m_score2];
+            score = score + baseScores[player1Score] + "-" + score + baseScores[player2Score];
         }
         return score;
     }
@@ -56,7 +56,7 @@ public class TennisGame1 implements TennisGame {
 
     private String getScoreForTie() {
         String score1;
-        switch (m_score1) {
+        switch (player1Score) {
             case 0:
                 score1 = "Love-All";
                 break;
