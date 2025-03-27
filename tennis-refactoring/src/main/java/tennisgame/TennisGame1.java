@@ -24,64 +24,69 @@ public class TennisGame1 implements TennisGame {
         int tempScore = 0;
         if (m_score1 == m_score2) {
             String score1;
-            switch (m_score1) {
-                case 0:
-                    score1 = "Love-All";
-                    break;
-                case 1:
-                    score1 = "Fifteen-All";
-                    break;
-                case 2:
-                    score1 = "Thirty-All";
-                    break;
-                default:
-                    score1 = "Deuce";
-                    break;
-
-            }
+            score1 = getScoreForTie();
             score = score1;
         } else if (m_score1 >= 4 || m_score2 >= 4) {
             String score1;
             int minusResult = m_score1 - m_score2;
-            if (minusResult == 1) score1 = "Advantage player1";
-            else if (minusResult == -1) score1 = "Advantage player2";
-            else if (minusResult >= 2) score1 = "Win for player1";
-            else score1 = "Win for player2";
+
+            if (minusResult == 1) {
+                score1 = "Advantage player1";
+            } else if (minusResult == -1) {
+                score1 = "Advantage player2";
+            } else if (minusResult >= 2) {
+                score1 = "Win for player1";
+            } else {
+                score1 = "Win for player2";
+            }
+
             score = score1;
         } else {
             String score1 = score;
-            switch (m_score2) {
-                case 0:
-                    score1 += "Love";
-                    break;
-                case 1:
-                    score1 += "Fifteen";
-                    break;
-                case 2:
-                    score1 += "Thirty";
-                    break;
-                case 3:
-                    score1 += "Forty";
-                    break;
-            }
+            score1 = applesauce(m_score2, score1);
             String score2 = score;
-            switch (m_score1) {
-                case 0:
-                    score2 += "Love";
-                    break;
-                case 1:
-                    score2 += "Fifteen";
-                    break;
-                case 2:
-                    score2 += "Thirty";
-                    break;
-                case 3:
-                    score2 += "Forty";
-                    break;
-            }
+            score2 = applesauce(m_score1, score2);
             score = score2 + "-" + score1;
         }
         return score;
+    }
+
+    private String applesauce(int m_score2, String score1) {
+        switch (m_score2) {
+            case 0:
+                score1 += "Love";
+                break;
+            case 1:
+                score1 += "Fifteen";
+                break;
+            case 2:
+                score1 += "Thirty";
+                break;
+            case 3:
+                score1 += "Forty";
+                break;
+        }
+        return score1;
+    }
+
+    private String getScoreForTie() {
+        String score1;
+        switch (m_score1) {
+            case 0:
+                score1 = "Love-All";
+                break;
+            case 1:
+                score1 = "Fifteen-All";
+                break;
+            case 2:
+                score1 = "Thirty-All";
+                break;
+            default:
+                score1 = "Deuce";
+                break;
+
+        }
+        return score1;
     }
 
 }
