@@ -4,13 +4,10 @@ public class TennisGame1 implements TennisGame {
 
     private int player1Score = 0;
     private int player2Score = 0;
-    private String player1Name;
-    private String player2Name;
+    private final String player1Name;
+    private final String player2Name;
 
-    public static final String LOVE = "Love";
-    public static final String FIFTEEN = "Fifteen";
-    public static final String THIRTY = "Thirty";
-    public static final String FORTY = "Forty";
+    private static final String[] BASE_SCORES = {"Love", "Fifteen", "Thirty", "Forty"};
 
     public TennisGame1(String player1Name, String player2Name) {
         this.player1Name = player1Name;
@@ -25,53 +22,39 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        String score = "";
-        int tempScore = 0;
         if (player1Score == player2Score) {
-            String score1;
-            score1 = getScoreForTie();
-            score = score1;
+            return getScoreForTie();
         } else if (player1Score >= 4 || player2Score >= 4) {
-            String score1;
             int minusResult = player1Score - player2Score;
-
-            if (minusResult == 1) {
-                score1 = "Advantage player1";
-            } else if (minusResult == -1) {
-                score1 = "Advantage player2";
-            } else if (minusResult >= 2) {
-                score1 = "Win for player1";
-            } else {
-                score1 = "Win for player2";
-            }
-
-            score = score1;
+            return determineScoreForAdvantageOrWin(minusResult);
         } else {
-            score = score + baseScores[player1Score] + "-" + score + baseScores[player2Score];
+            return BASE_SCORES[player1Score] + "-" + BASE_SCORES[player2Score];
         }
-        return score;
     }
 
-    String[] baseScores = {"Love", "Fifteen", "Thirty", "Forty"};
+    private String determineScoreForAdvantageOrWin(int minusResult) {
+        if (minusResult == 1) {
+            return "Advantage player1";
+        } else if (minusResult == -1) {
+            return "Advantage player2";
+        } else if (minusResult >= 2) {
+            return "Win for player1";
+        } else {
+            return "Win for player2";
+        }
+    }
 
     private String getScoreForTie() {
-        String score1;
         switch (player1Score) {
             case 0:
-                score1 = "Love-All";
-                break;
+                return "Love-All";
             case 1:
-                score1 = "Fifteen-All";
-                break;
+                return "Fifteen-All";
             case 2:
-                score1 = "Thirty-All";
-                break;
+                return "Thirty-All";
             default:
-                score1 = "Deuce";
-                break;
-
+                return "Deuce";
         }
-        return score1;
     }
 
 }
