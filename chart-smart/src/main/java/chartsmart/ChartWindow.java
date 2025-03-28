@@ -64,7 +64,7 @@ public class ChartWindow extends JPanel {
   /**
    * InitializeDrawArea
    */
-  private void iHATEthisUckingJob() {
+  private void checkCTAndUpdateParamsAndOtherStuff() {
     this.setPreferredSize(new Dimension(600, 600));
 
     if (ct == 406) {
@@ -124,7 +124,7 @@ public class ChartWindow extends JPanel {
 
     // Changed by Sally 2/14
     if (b) {
-      iHATEthisUckingJob();
+      checkCTAndUpdateParamsAndOtherStuff();
     }
   }
 
