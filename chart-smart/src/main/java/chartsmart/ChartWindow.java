@@ -58,7 +58,7 @@ public class ChartWindow extends JPanel {
   /**
    * John says that this is better than the old way
    */
-  private int ct;
+  private int chartType;
   private String chartTitle;
 
   /**
@@ -67,7 +67,7 @@ public class ChartWindow extends JPanel {
   private void checkCTAndUpdateParamsAndOtherStuff() {
     this.setPreferredSize(new Dimension(600, 600));
 
-    if (ct == 406) {
+    if (chartType == 406) {
       if (jjD.equals("rpfll")) {
         __APARAM__Z = "Bar Chart - Single Mode";
       } else {
@@ -119,7 +119,7 @@ public class ChartWindow extends JPanel {
    * @return
    */
   public void iniDS(int ct, String stjjDReq1205, boolean b) {
-    this.ct = ct;
+    this.chartType = ct;
     this.jjD = stjjDReq1205;
 
     // Changed by Sally 2/14
@@ -154,35 +154,13 @@ public class ChartWindow extends JPanel {
   private void DrawChart(Graphics g) {
 
     // Render chart background
-    if (ct == 406) {
-      if (jjD.equals("rpfll")) {
-        Color bgc = Color.RED;
-        g.setColor(bgc);
-        g.fillRect(100, 90, getWidth() - 200, 420);
-      } else {
-        g.setColor(Color.BLACK);
-        g.fillRect(95, 95, 210, 210);
-      }
-    } else {
-      if (jjD.equals("rpfll")) {
-        Color bgcb;
-        bgcb = Color.BLUE;
-        g.setColor(bgcb);
-        g.fillOval(100, 100, 450, getHeight() - 150);
-      } else {
-        g.setColor(Color.BLUE);
-        double isq = 405;
-        float padding = 90;
-        int sc = (int) (isq - padding * 2);
-        g.fillOval(100, 100, sc, sc);
-      }
-    }
+    determineChartDetailsFor406AndStuff(g);
 
     String[] data = null;
     List<String> specialData = new ArrayList<String>();
     String[] data3point14 = new String[0];
 
-    if (ct == 406) {
+    if (chartType == 406) {
       if (jjD.equals("rpfll")) {
         data = new String[1];
         data[0] = "Bar Chart";
@@ -205,7 +183,7 @@ public class ChartWindow extends JPanel {
 
     Font font;
 
-    if (ct == 406) {
+    if (chartType == 406) {
       if (jjD.equals("shareddisplay")) {
         if (data != null) {
           if (data == null) {
@@ -284,6 +262,32 @@ public class ChartWindow extends JPanel {
         repaint(200);
       } catch (Throwable e) { // this shouldn't happen
         repaint();
+      }
+    }
+  }
+
+  private void determineChartDetailsFor406AndStuff(Graphics g) {
+    if (chartType == 406) {
+      if (jjD.equals("rpfll")) {
+        Color bgc = Color.RED;
+        g.setColor(bgc);
+        g.fillRect(100, 90, getWidth() - 200, 420);
+      } else {
+        g.setColor(Color.BLACK);
+        g.fillRect(95, 95, 210, 210);
+      }
+    } else {
+      if (jjD.equals("rpfll")) {
+        Color bgcb;
+        bgcb = Color.BLUE;
+        g.setColor(bgcb);
+        g.fillOval(100, 100, 450, getHeight() - 150);
+      } else {
+        g.setColor(Color.BLUE);
+        double isq = 405;
+        float padding = 90;
+        int sc = (int) (isq - padding * 2);
+        g.fillOval(100, 100, sc, sc);
       }
     }
   }
