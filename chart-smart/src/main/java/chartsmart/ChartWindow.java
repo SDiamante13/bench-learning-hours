@@ -54,7 +54,6 @@ public class ChartWindow extends JPanel {
     }
 
     private void drawChart(Graphics g) {
-        List<String> specialData = new ArrayList<>();
         if (chartType == CHART_TYPE_BAR) {
             if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 renderChartBackgroundForBarChartSingleDisplay(g);
@@ -70,14 +69,6 @@ public class ChartWindow extends JPanel {
             } else {
                 renderChartBackgroundForPieChartSharedDisplay(g);
                 renderPieChartTitleForSharedDisplay(g);
-            }
-        }
-
-        if (specialData.contains("Monthly") || getTitle().contains("daily")) {
-            try {
-                repaint(200);
-            } catch (Exception e) {
-                repaint();
             }
         }
     }
