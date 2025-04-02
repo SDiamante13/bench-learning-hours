@@ -54,42 +54,25 @@ public class ChartWindow extends JPanel {
     }
 
     private void drawChart(Graphics g) {
-        String[] data = null;
         List<String> specialData = new ArrayList<>();
-        String[] data3point14 = new String[0];
         if (chartType == CHART_TYPE_BAR) {
             if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 renderChartBackgroundForBarChartSingleDisplay(g);
-            } else {
-                renderChartBackgroundForBarChartSharedDisplay(g);
-            }
-
-            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
-                data = getTitleDataForBarChartSingleDisplay();
-            } else {
-                data = getTitleDataForBarChartSharedDisplay();
-            }
-
-            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
+                String[] data = getTitleDataForBarChartSingleDisplay();
                 renderBarChartTitleForSingleDisplay(g, data);
             } else {
+                renderChartBackgroundForBarChartSharedDisplay(g);
+                String[] data = getTitleDataForBarChartSharedDisplay();
                 renderBarChartTitleForSharedDisplay(g, data);
             }
         } else {
             if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 renderChartBackgroundForPieChartSingleDisplay(g);
-            } else {
-                renderChartBackgroundForPieChartSharedDisplay(g);
-            }
-            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 setTitleDataForPieChartSingleDisplay(specialData);
-            } else {
-                data3point14 = getTitleDataForPieChartSharedDisplay();
-            }
-
-            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 renderPieChartTitleForSingleDisplay(g, specialData);
             } else {
+                renderChartBackgroundForPieChartSharedDisplay(g);
+                String[] data3point14 = getTitleDataForPieChartSharedDisplay();
                 renderPieChartTitleForSharedDisplay(g, data3point14);
             }
         }
