@@ -7,70 +7,65 @@ import java.util.List;
 
 public class ChartWindow extends JPanel {
 
-    private String jjD;
-    private String __APARAM__Z;
+    private String chartMode;
+    private String title;
 
-    private int ct;
+    public static final int CHART_TYPE_BAR = 406;
 
-    /**
-     * InitializeDrawArea
-     */
-    private void iHATEthisUckingJob() {
+    public static final String CHART_MODE_SINGLE_DISPLAY_MODE = "rpfll";
+    public static final String CHART_MODE_SHARED_DISPLAY = "shareddisplay";
+
+    private int chartType;
+
+    public void showChartIThink(int chartType, String chartMode, boolean shouldShow) {
+        this.chartType = chartType;
+        this.chartMode = chartMode;
+
+        if (shouldShow) {
+            initializeDrawArea();
+        }
+    }
+
+    private void initializeDrawArea() {
         this.setPreferredSize(new Dimension(600, 600));
 
-        if (ct == 406) {
-            if (jjD.equals("rpfll")) {
-                __APARAM__Z = "Bar Chart - Single Mode";
+        if (chartType == CHART_TYPE_BAR) {
+            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
+                title = "Bar Chart - Single Mode";
             } else {
-                __APARAM__Z = "Bar" + " Chart - Compare Mode";
+                title = "Bar" + " Chart - Compare Mode";
             }
         } else {
-            if (jjD.equals("rpfll")) {
-                __APARAM__Z = "Pie Chart - Single Mode";
+            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
+                title = "Pie Chart - Single Mode";
             } else {
-                __APARAM__Z = "Pie Chart - Compare Mode";
+                title = "Pie Chart - Compare Mode";
             }
         }
     }
 
     public String getTitle() {
-        return __APARAM__Z;
-    }
-
-
-    /**
-     * Shows the chart
-     */
-    public void iniDS(int ct, String stjjDReq1205, boolean b) {
-        this.ct = ct;
-        this.jjD = stjjDReq1205;
-
-        if (b) {
-            iHATEthisUckingJob();
-        }
+        return title;
     }
 
     @Override
     public void paint(Graphics g) {
-        DrawChart(g);
+        drawChart(g);
     }
 
-    private void DrawChart(Graphics g) {
+    private void drawChart(Graphics g) {
         // Render chart background
-        if (ct == 406) {
-            if (jjD.equals("rpfll")) {
-                Color bgc = Color.RED;
-                g.setColor(bgc);
+        if (chartType == CHART_TYPE_BAR) {
+            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
+                g.setColor(Color.RED);
                 g.fillRect(100, 90, getWidth() - 200, 420);
             } else {
                 g.setColor(Color.BLACK);
                 g.fillRect(95, 95, 210, 210);
             }
         } else {
-            if (jjD.equals("rpfll")) {
-                Color bgcb;
-                bgcb = Color.BLUE;
-                g.setColor(bgcb);
+            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
+                g.setColor(Color.BLUE);
                 g.fillOval(100, 100, 450, getHeight() - 150);
             } else {
                 g.setColor(Color.BLUE);
@@ -85,8 +80,8 @@ public class ChartWindow extends JPanel {
         List<String> specialData = new ArrayList<>();
         String[] data3point14 = new String[0];
 
-        if (ct == 406) {
-            if (jjD.equals("rpfll")) {
+        if (chartType == CHART_TYPE_BAR) {
+            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 data = new String[1];
                 data[0] = "Bar Chart";
             } else {
@@ -96,7 +91,7 @@ public class ChartWindow extends JPanel {
                 data[i] = "Small";
             }
         } else {
-            if (jjD.equals("rpfll")) {
+            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 specialData.add("Pie Chart");
             } else {
                 data3point14 = new String[2];
@@ -107,8 +102,8 @@ public class ChartWindow extends JPanel {
 
         Font font;
 
-        if (ct == 406) {
-            if (jjD.equals("shareddisplay")) {
+        if (chartType == CHART_TYPE_BAR) {
+            if (chartMode.equals(CHART_MODE_SHARED_DISPLAY)) {
                 font = new Font("Arial Black", Font.BOLD, 25);
                 g.setColor(Color.CYAN);
                 int bottomY = 300;
@@ -136,7 +131,7 @@ public class ChartWindow extends JPanel {
                 g.drawString(data[0], 130, 400);
             }
         } else {
-            if (jjD.equals("rpfll")) {
+            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 font = new Font("Bookman Old Style", Font.BOLD, 55);
                 g.setColor(Color.WHITE);
                 g.setFont(font);
@@ -150,8 +145,6 @@ public class ChartWindow extends JPanel {
 
                 g.drawString(data3point14[1], 170, 235);
             }
-
-
         }
 
         if (specialData.contains("Monthly") || getTitle().contains("daily")) {
