@@ -54,8 +54,9 @@ public class ChartWindow extends JPanel {
     private void drawChart(Graphics g) {
         if (chartType == CHART_TYPE_BAR) {
             if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
-                renderChartBackgroundForBarChartSingleDisplay(g);
-                renderBarChartTitleForSingleDisplay(g);
+                BarChartWithSingleDisplay barChartWithSingleDisplay = new BarChartWithSingleDisplay();
+                barChartWithSingleDisplay.renderBackground(g, getWidth());
+                barChartWithSingleDisplay.renderTitle(g);
             } else {
                 renderChartBackgroundForBarChartSharedDisplay(g);
                 renderBarChartTitleForSharedDisplay(g);
@@ -69,11 +70,6 @@ public class ChartWindow extends JPanel {
                 renderPieChartTitleForSharedDisplay(g);
             }
         }
-    }
-
-    private void renderChartBackgroundForBarChartSingleDisplay(Graphics g) {
-        g.setColor(Color.RED);
-        g.fillRect(100, 90, getWidth() - 200, 420);
     }
 
     private void renderChartBackgroundForBarChartSharedDisplay(Graphics g) {
@@ -107,20 +103,6 @@ public class ChartWindow extends JPanel {
         g.setFont(font);
         g.drawString("Bar Chart", 130, 250);
         g.drawString("Small", 130, 270);
-    }
-
-    private void renderBarChartTitleForSingleDisplay(Graphics g) {
-        int bottomY = 500;
-        g.setColor(Color.CYAN);
-        g.fillRect(112, bottomY - 200, 75, 200);
-        g.fillRect(187, bottomY - 400, 75, 400);
-        g.fillRect(262, bottomY - 300, 75, 300);
-        g.fillRect(337, bottomY - 250, 75, 250);
-        g.fillRect(412, bottomY - 340, 75, 340);
-        Font font = new Font("Arial Black", Font.BOLD, 55);
-        g.setColor(Color.BLACK);
-        g.setFont(font);
-        g.drawString("Bar Chart", 130, 400);
     }
 
     private void renderPieChartTitleForSingleDisplay(Graphics g) {
