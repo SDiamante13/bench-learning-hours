@@ -33,6 +33,7 @@ atlassian-ide-plugin.xml
 ### Java ###
 # Compiled class file
 *.class
+**/bin
 
 # Log file
 *.log
