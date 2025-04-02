@@ -63,37 +63,30 @@ public class ChartWindow extends JPanel {
             } else {
                 renderChartBackgroundForBarChartSharedDisplay(g);
             }
-        } else {
-            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
-                renderChartBackgroundForPieChartSingleDisplay(g);
-            } else {
-                renderChartBackgroundForPieChartSharedDisplay(g);
-            }
-        }
 
-
-        if (chartType == CHART_TYPE_BAR) {
             if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 data = getTitleDataForBarChartSingleDisplay();
             } else {
                 data = getTitleDataForBarChartSharedDisplay();
             }
-        } else {
-            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
-                setTitleDataForPieChartSingleDisplay(specialData);
-            } else {
-                data3point14 = getTitleDataForPieChartSharedDisplay();
-            }
-        }
 
-
-        if (chartType == CHART_TYPE_BAR) {
             if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 renderBarChartTitleForSingleDisplay(g, data);
             } else {
                 renderBarChartTitleForSharedDisplay(g, data);
             }
         } else {
+            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
+                renderChartBackgroundForPieChartSingleDisplay(g);
+            } else {
+                renderChartBackgroundForPieChartSharedDisplay(g);
+            }
+            if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
+                setTitleDataForPieChartSingleDisplay(specialData);
+            } else {
+                data3point14 = getTitleDataForPieChartSharedDisplay();
+            }
+
             if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 renderPieChartTitleForSingleDisplay(g, specialData);
             } else {
