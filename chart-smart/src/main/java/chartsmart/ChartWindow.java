@@ -58,22 +58,18 @@ public class ChartWindow extends JPanel {
         if (chartType == CHART_TYPE_BAR) {
             if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 renderChartBackgroundForBarChartSingleDisplay(g);
-                String[] data = getTitleDataForBarChartSingleDisplay();
-                renderBarChartTitleForSingleDisplay(g, data);
+                renderBarChartTitleForSingleDisplay(g);
             } else {
                 renderChartBackgroundForBarChartSharedDisplay(g);
-                String[] data = getTitleDataForBarChartSharedDisplay();
-                renderBarChartTitleForSharedDisplay(g, data);
+                renderBarChartTitleForSharedDisplay(g);
             }
         } else {
             if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
                 renderChartBackgroundForPieChartSingleDisplay(g);
-                setTitleDataForPieChartSingleDisplay(specialData);
-                renderPieChartTitleForSingleDisplay(g, specialData);
+                renderPieChartTitleForSingleDisplay(g);
             } else {
                 renderChartBackgroundForPieChartSharedDisplay(g);
-                String[] data3point14 = getTitleDataForPieChartSharedDisplay();
-                renderPieChartTitleForSharedDisplay(g, data3point14);
+                renderPieChartTitleForSharedDisplay(g);
             }
         }
 
@@ -109,27 +105,7 @@ public class ChartWindow extends JPanel {
         g.fillOval(100, 100, sc, sc);
     }
 
-    private String[] getTitleDataForBarChartSingleDisplay() {
-        return new String[]{"Bar Chart"};
-    }
-
-    private String[] getTitleDataForBarChartSharedDisplay() {
-        String[] data;
-        data = new String[]{"Bar Chart", "Small"};
-        return data;
-    }
-
-    private String[] getTitleDataForPieChartSharedDisplay() {
-        String[] data3point14;
-        data3point14 = new String[]{"Pie Chart", "Small"};
-        return data3point14;
-    }
-
-    private void setTitleDataForPieChartSingleDisplay(List<String> specialData) {
-        specialData.add("Pie Chart");
-    }
-
-    private void renderBarChartTitleForSharedDisplay(Graphics g, String[] data) {
+    private void renderBarChartTitleForSharedDisplay(Graphics g) {
         Font font = new Font("Arial Black", Font.BOLD, 25);
         g.setColor(Color.CYAN);
         int bottomY = 300;
@@ -140,11 +116,11 @@ public class ChartWindow extends JPanel {
         g.fillRect(260, bottomY - 170, 40, 170);
         g.setColor(Color.RED);
         g.setFont(font);
-        g.drawString(data[0], 130, 250);
-        g.drawString(data[1], 130, 270);
+        g.drawString("Bar Chart", 130, 250);
+        g.drawString("Small", 130, 270);
     }
 
-    private void renderBarChartTitleForSingleDisplay(Graphics g, String[] data) {
+    private void renderBarChartTitleForSingleDisplay(Graphics g) {
         int bottomY = 500;
         g.setColor(Color.CYAN);
         g.fillRect(112, bottomY - 200, 75, 200);
@@ -155,21 +131,21 @@ public class ChartWindow extends JPanel {
         Font font = new Font("Arial Black", Font.BOLD, 55);
         g.setColor(Color.BLACK);
         g.setFont(font);
-        g.drawString(data[0], 130, 400);
+        g.drawString("Bar Chart", 130, 400);
     }
 
-    private void renderPieChartTitleForSingleDisplay(Graphics g, List<String> specialData) {
+    private void renderPieChartTitleForSingleDisplay(Graphics g) {
         Font font = new Font("Bookman Old Style", Font.BOLD, 55);
         g.setColor(Color.WHITE);
         g.setFont(font);
-        g.drawString(specialData.get(0), 200, 340);
+        g.drawString("Pie Chart", 200, 340);
     }
 
-    private void renderPieChartTitleForSharedDisplay(Graphics g, String[] data3point14) {
+    private void renderPieChartTitleForSharedDisplay(Graphics g) {
         Font font = new Font("Bookman Old Style", Font.BOLD, 30);
         g.setFont(font);
         g.setColor(Color.WHITE);
-        g.drawString(data3point14[0], 145, 205);
-        g.drawString(data3point14[1], 170, 235);
+        g.drawString("Pie Chart", 145, 205);
+        g.drawString("Small", 170, 235);
     }
 }
