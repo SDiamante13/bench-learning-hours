@@ -1,28 +1,26 @@
 package duplicationkata;
 
+import java.util.function.IntFunction;
+
 public class Lesson3HigherOrderFunctions extends Song
 {
   public void singCheers()
   {
-    int number = 2;
-    sing(number + "! ");
-    number = number + 2;
-    sing(number + "! ");
-    number = number + 2;
-    sing(number + "! ");
-    number = number + 2;
-    sing(number + "! ");
-    sing("Who do we appreciate?");
-    number = 17;
-    sing(number + "! ");
-    number = getNextPrime(number);
-    sing(number + "! ");
-    number = getNextPrime(number);
-    sing(number + "! ");
-    number = getNextPrime(number);
-    sing(number + "! ");
-    sing("These are the primes, that we find fine!");
+    singTag(n -> n + 2, 2, "Who do we appreciate?");
+    singTag(this::getNextPrime, 17, "These are the primes, that we find fine!");
   }
+
+  private void singTag(IntFunction<Integer> function, int number, String tagLine) {
+    sing(number + "! ");
+    number = function.apply(number);
+    sing(number + "! ");
+    number = function.apply(number);
+    sing(number + "! ");
+    number = function.apply(number);
+    sing(number + "! ");
+    sing(tagLine);
+  }
+
   private int getNextPrime(int number)
   {
     switch (number)
