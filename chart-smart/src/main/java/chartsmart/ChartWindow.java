@@ -54,87 +54,57 @@ public class ChartWindow extends JPanel {
     private void drawChart(Graphics g) {
         if (chartType == CHART_TYPE_BAR) {
             if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
-                renderChartBackgroundForBarChartSingleDisplay(g);
-                renderBarChartTitleForSingleDisplay(g);
+                drawRectangle(g, Color.RED, 100, 90, getWidth() - 200, 420);
+
+                int bottomY = 500;
+                drawRectangle(g, Color.CYAN, 112, bottomY - 200, 75, 200);
+                drawRectangle(g, Color.CYAN, 187, bottomY - 400, 75, 400);
+                drawRectangle(g, Color.CYAN, 262, bottomY - 300, 75, 300);
+                drawRectangle(g, Color.CYAN, 337, bottomY - 250, 75, 250);
+                drawRectangle(g, Color.CYAN, 412, bottomY - 340, 75, 340);
+
+                drawText(g, Color.BLACK, "Arial Black", 55, "Bar Chart", 130, 400);
             } else {
-                renderChartBackgroundForBarChartSharedDisplay(g);
-                renderBarChartTitleForSharedDisplay(g);
+                drawRectangle(g, Color.BLACK, 95, 95, 210, 210);
+
+                int bottomY = 300;
+                drawRectangle(g, Color.CYAN, 100, bottomY - 100, 40, 100);
+                drawRectangle(g, Color.CYAN, 140, bottomY - 200, 40, 200);
+                drawRectangle(g, Color.CYAN, 180, bottomY - 150, 40, 150);
+                drawRectangle(g, Color.CYAN, 220, bottomY - 125, 40, 125);
+                drawRectangle(g, Color.CYAN, 260, bottomY - 170, 40, 170);
+
+                drawText(g, Color.RED, "Arial Black", 25, "Bar Chart", 130, 250);
+                drawText(g, Color.RED, "Arial Black", 25, "Small", 130, 270);
             }
         } else {
             if (chartMode.equals(CHART_MODE_SINGLE_DISPLAY_MODE)) {
-                renderChartBackgroundForPieChartSingleDisplay(g);
-                renderPieChartTitleForSingleDisplay(g);
+                drawCircle(g, Color.BLUE, 100, 100, 450, getHeight() - 150);
+
+                drawText(g, Color.WHITE, "Bookman Old Style", 55, "Pie Chart", 200, 340);
             } else {
-                renderChartBackgroundForPieChartSharedDisplay(g);
-                renderPieChartTitleForSharedDisplay(g);
+                drawCircle(g, Color.BLUE, 100, 100, 225, 225);
+
+                drawText(g, Color.WHITE, "Bookman Old Style", 30, "Pie Chart", 145, 205);
+                drawText(g, Color.WHITE, "Bookman Old Style", 30, "Small", 170, 235);
             }
         }
     }
 
-    private void renderChartBackgroundForBarChartSingleDisplay(Graphics g) {
-        g.setColor(Color.RED);
-        g.fillRect(100, 90, getWidth() - 200, 420);
+    private void drawCircle(Graphics g, Color circleColor, int x, int y, int width, int height) {
+        g.setColor(circleColor);
+        g.fillOval(x, y, width, height);
     }
 
-    private void renderChartBackgroundForBarChartSharedDisplay(Graphics g) {
-        g.setColor(Color.BLACK);
-        g.fillRect(95, 95, 210, 210);
+    private void drawText(Graphics g, Color textColor, String fontStyle, int size, String text, int x, int y) {
+        g.setColor(textColor);
+        g.setFont(new Font(fontStyle, Font.BOLD, size));
+        g.drawString(text, x, y);
     }
 
-    private void renderChartBackgroundForPieChartSingleDisplay(Graphics g) {
-        g.setColor(Color.BLUE);
-        g.fillOval(100, 100, 450, getHeight() - 150);
+    private void drawRectangle(Graphics g, Color backgroundColor, int x, int y, int width, int height) {
+        g.setColor(backgroundColor);
+        g.fillRect(x, y, width, height);
     }
 
-    private void renderChartBackgroundForPieChartSharedDisplay(Graphics g) {
-        g.setColor(Color.BLUE);
-        double isq = 405;
-        float padding = 90;
-        int sc = (int) (isq - padding * 2);
-        g.fillOval(100, 100, sc, sc);
-    }
-
-    private void renderBarChartTitleForSharedDisplay(Graphics g) {
-        Font font = new Font("Arial Black", Font.BOLD, 25);
-        g.setColor(Color.CYAN);
-        int bottomY = 300;
-        g.fillRect(100, bottomY - 100, 40, 100);
-        g.fillRect(140, bottomY - 200, 40, 200);
-        g.fillRect(180, bottomY - 150, 40, 150);
-        g.fillRect(220, bottomY - 125, 40, 125);
-        g.fillRect(260, bottomY - 170, 40, 170);
-        g.setColor(Color.RED);
-        g.setFont(font);
-        g.drawString("Bar Chart", 130, 250);
-        g.drawString("Small", 130, 270);
-    }
-
-    private void renderBarChartTitleForSingleDisplay(Graphics g) {
-        int bottomY = 500;
-        g.setColor(Color.CYAN);
-        g.fillRect(112, bottomY - 200, 75, 200);
-        g.fillRect(187, bottomY - 400, 75, 400);
-        g.fillRect(262, bottomY - 300, 75, 300);
-        g.fillRect(337, bottomY - 250, 75, 250);
-        g.fillRect(412, bottomY - 340, 75, 340);
-        Font font = new Font("Arial Black", Font.BOLD, 55);
-        g.setColor(Color.BLACK);
-        g.setFont(font);
-        g.drawString("Bar Chart", 130, 400);
-    }
-
-    private void renderPieChartTitleForSingleDisplay(Graphics g) {
-        Font font = new Font("Bookman Old Style", Font.BOLD, 55);
-        g.setColor(Color.WHITE);
-        g.setFont(font);
-        g.drawString("Pie Chart", 200, 340);
-    }
-
-    private void renderPieChartTitleForSharedDisplay(Graphics g) {
-        Font font = new Font("Bookman Old Style", Font.BOLD, 30);
-        g.setFont(font);
-        g.setColor(Color.WHITE);
-        g.drawString("Pie Chart", 145, 205);
-        g.drawString("Small", 170, 235);
-    }
 }
